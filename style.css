@@ -1,0 +1,52 @@
+
+
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    width: calc(100% - 60px);
+    height: calc(100vh - 60px);
+    border: 5px solid;
+    margin: 25px;
+}
+
+.card{
+    width: 100px;
+    height: 100px;
+    border: 5px solid;
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    margin: 5px;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+#game_label{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 80%;
+    height: calc(80% - 10px);
+    border: 5px solid;
+}
+
+.distro-container{
+    right: 0;
+    border: 5px solid blue;
+
+}
+
+.card.hidden img {
+    visibility: hidden;
+}
+
+.card.flipped img {
+    visibility: visible;
+}
