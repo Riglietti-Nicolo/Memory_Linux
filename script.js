@@ -53,6 +53,41 @@ function flipCard(card){
         card.classList.add("hidden");
         card.classList.remove("flipped");
     }
+
+    checkMatch();
 }
+
+function unFlipCard(){
+
+}
+
+function checkMatch(){
+    const match = firstCard.src === secondCard.src;
+
+    if(match){
+        firstCard.classList.add("block");
+        secondCard.classList.add("block");
+
+        vincitore();
+        reset();
+
+    }else{
+        setTimeout(unFlipCard, 2000);
+    }
+
+    reset();
+}
+
+
+function vincitore(){
+    if(count == 8){
+        alert("HAI VINTO!")
+    }
+}
+
+function reset(){
+    firstCard, secondCard = null, null;
+}
+
 
 createCells();
