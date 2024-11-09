@@ -108,3 +108,14 @@ img{
     background-image: url('images/tux.png'); 
     background-size: cover;
 }
+
+/* .win{
+    display: none;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    z-index: 2;
+} */
