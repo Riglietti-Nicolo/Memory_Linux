@@ -61,7 +61,7 @@ function createCells() {
 }
 
 function assegnazione(card) {
-    if (isFlipping) {
+    if (isFlipping || card === firstCard || card.classList.contains("block")) {
         return;
     }
 
