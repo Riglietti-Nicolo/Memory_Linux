@@ -102,3 +102,9 @@ img{
         transform: translateY(0);
     }
 }
+
+
+.card.hidden {
+    background-image: url('images/tux.png'); 
+    background-size: cover;
+}
