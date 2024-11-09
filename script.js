@@ -10,6 +10,19 @@ let secondCard = null;
 let isFlipping = false;
 let count = 0;
 
+const numPoints = 200; 
+const pointsContainer = document.querySelector('.points-container');
+
+for (let i = 0; i < numPoints; i++) {
+    const point = document.createElement('div');
+    point.classList.add('point');
+    const randomX = Math.random() * window.innerWidth;
+    const randomY = Math.random() * window.innerHeight;
+    point.style.left = `${randomX}px`;
+    point.style.top = `${randomY}px`;
+    pointsContainer.appendChild(point);
+}
+
 function returnObjectById(id) {
     return document.getElementById(id);
 }
@@ -18,6 +31,7 @@ function createObject(oggetto) {
     return document.createElement(oggetto);
 }
 
+// algoritmo di Fisher-Yates
 function shuffling(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -91,6 +105,8 @@ function checkMatch() {
 function vincitore() {
     if (count === 8) {
         alert("ciao hai vinto!");
+        location.reload();
+        count = 0
     }
 }
 
