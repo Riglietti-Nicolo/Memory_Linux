@@ -5,11 +5,16 @@ const cardsArray = [
     'images/mint.png', 'images/garuda.png', 'images/puppy.png', 'images/kali.png'
 ];
 
-function returnObjectById(id){
-    return document.getElementById(id)
+let firstCard = null;
+let secondCard = null;
+let isFlipping = false;
+let count = 0;
+
+function returnObjectById(id) {
+    return document.getElementById(id);
 }
 
-function createObject(oggetto){
+function createObject(oggetto) {
     return document.createElement(oggetto);
 }
 
@@ -21,73 +26,78 @@ function shuffling(array) {
     return array;
 }
 
-shuffling(cardsArray)
+shuffling(cardsArray);
 
-function createCells(){
-
+function createCells() {
     const container = returnObjectById("game_label");
 
     cardsArray.forEach(distro => {
-        let divDistroImage =  createObject("div");
+        let divDistroImage = createObject("div");
         let distroImage = createObject("img");
 
         distroImage.src = distro;
-
-        divDistroImage.classList.add("card");
-
+        divDistroImage.classList.add("card", "hidden"); 
         divDistroImage.appendChild(distroImage);
         container.appendChild(divDistroImage);
 
         divDistroImage.addEventListener("click", () => {
-            flipCard(divDistroImage);
+            assegnazione(divDistroImage);
         });
     });
 }
 
-
-function flipCard(card){
-    if (card.classList.contains("hidden")) {
-        card.classList.remove("hidden"); 
-        card.classList.add("flipped");
-    } else {
-        card.classList.add("hidden");
-        card.classList.remove("flipped");
+function assegnazione(card) {
+    if (isFlipping) {
+        return;
     }
 
-    checkMatch();
+    flipCard(card); 
+
+    if (firstCard === null) {
+        firstCard = card;
+    } else if (secondCard === null) {
+        secondCard = card;
+        isFlipping = true; 
+        checkMatch(); 
+    }
 }
 
-function unFlipCard(){
-
+function flipCard(card) {
+    card.classList.toggle("hidden");
+    card.classList.toggle("flipped");
 }
 
-function checkMatch(){
-    const match = firstCard.src === secondCard.src;
+function unFlipCard() {
+    flipCard(firstCard);
+    flipCard(secondCard);
+    reset(); 
+}
 
-    if(match){
+function checkMatch() {
+    const img1 = firstCard.querySelector("img").src;
+    const img2 = secondCard.querySelector("img").src;
+
+    if (img1 === img2) {
         firstCard.classList.add("block");
         secondCard.classList.add("block");
-
-        vincitore();
+        count++; 
+        setTimeout(vincitore, 1000);
         reset();
-
-    }else{
-        setTimeout(unFlipCard, 2000);
-    }
-
-    reset();
-}
-
-
-function vincitore(){
-    if(count == 8){
-        alert("HAI VINTO!")
+    } else {
+        setTimeout(unFlipCard, 1000);
     }
 }
 
-function reset(){
-    firstCard, secondCard = null, null;
+function vincitore() {
+    if (count === 8) {
+        alert("ciao hai vinto!");
+    }
 }
 
+function reset() {
+    firstCard = null;
+    secondCard = null;
+    isFlipping = false;
+}
 
 createCells();
