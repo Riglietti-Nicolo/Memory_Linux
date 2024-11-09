@@ -104,7 +104,7 @@ function checkMatch() {
 
 function vincitore() {
     if (count === 8) {
-        alert("ciao hai vinto!");
+        alert("HAI VINTO !");
         location.reload();
         count = 0
     }
