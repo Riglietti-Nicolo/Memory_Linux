@@ -43,10 +43,28 @@ img{
 
 }
 
-.card.hidden img {
-    visibility: hidden;
+.block{
+    background-color: gray;
 }
 
-.card.flipped img {
-    visibility: visible;
+.card.hidden {
+    transform: rotateY(180deg);
+    transition: transform 0.6s; 
+    
+}
+
+.card.hidden img{
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.card.flipped  {
+    transform: rotateY(0deg);
+    transition: transform 0.6s; 
+    
+}
+
+.card.flipped img{
+    opacity: 1;
+    transition: opacity 0.6s; 
 }
