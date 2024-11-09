@@ -104,8 +104,15 @@ function checkMatch() {
 
 function vincitore() {
     if (count === 8) {
-        alert("HAI VINTO !");
-        location.reload();
+        
+        alert("HAI VINTO!")
+
+        location.reload()
+        // let win = document.getElementById("win");
+
+        // win.style.display = "block";
+
+        // setTimeout(() => location.reload(), 2000);
         count = 0
     }
 }
