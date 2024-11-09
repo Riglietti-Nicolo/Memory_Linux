@@ -95,7 +95,9 @@ function checkMatch() {
         firstCard.classList.add("block");
         secondCard.classList.add("block");
         count++; 
-        setTimeout(vincitore, 2000);
+        if (count === 8) {
+            setTimeout(vincitore, 2000);ù
+        }
         reset();
     } else {
         setTimeout(unFlipCard, 1000);
@@ -103,11 +105,9 @@ function checkMatch() {
 }
 
 function vincitore() {
-    if (count === 8) {
-        alert("HAI VINTO !");
-        location.reload();
-        count = 0
-    }
+    alert("HAI VINTO !");
+    location.reload();
+    count = 0
 }
 
 function reset() {
