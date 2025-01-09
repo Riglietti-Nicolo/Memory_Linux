@@ -119,3 +119,19 @@ img{
     width: 100%;
     z-index: 2;
 } */
+
+.time_label{
+    background-color: white; 
+    height: 10vh; 
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    line-height: 10vh;
+    font-size: 200%;
+    border: 5px solid rgba(#4682B4);    
+    box-shadow: 0 4px 10px 0 #008080, 0 4px 100px 0 #4682B4;
+    background-color: transparent;
+    color: white;
+    margin-left: 5%;
+    margin-top: -20%;
+}

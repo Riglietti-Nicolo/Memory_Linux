@@ -105,7 +105,9 @@ function checkMatch() {
 }
 
 function vincitore() {
-    alert("HAI VINTO !");
+    const label = document.getElementsByClassName("time_label")[0];
+    alert(`HAI VINTO! il tuo tempo: ${label.innerText}`);
+    clearInterval(timerInterval);
     location.reload();
     count = 0
 }
@@ -117,3 +119,27 @@ function reset() {
 }
 
 createCells();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    let startTime = Date.now(); 
+    let timerInterval = null;
+
+    const label = document.getElementsByClassName("time_label")[0];
+    
+    label.innerText = "00:00";
+
+    function updateTimer() {
+        const elapsedTime = Date.now() - startTime; 
+        const totalSeconds = Math.floor(elapsedTime / 1000); 
+        const minutes = Math.floor(totalSeconds / 60); 
+        const seconds = totalSeconds % 60; 
+
+        const Minutes = String(minutes).padStart(2, "0");
+        const Seconds = String(seconds).padStart(2, "0");
+
+        label.innerText = `${Minutes}:${Seconds}`; 
+    }
+
+    timerInterval = setInterval(updateTimer, 1000);
+});
