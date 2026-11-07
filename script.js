@@ -96,7 +96,7 @@ function checkMatch() {
         secondCard.classList.add("block");
         count++; 
         if (count === 8) {
-            setTimeout(vincitore, 2000);ù
+            setTimeout(vincitore, 2000);
         }
         reset();
     } else {
